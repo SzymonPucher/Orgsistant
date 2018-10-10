@@ -1,8 +1,9 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Day, Month, Year, Category, Chapter, List, ElementInList
+from .models import Mood, Day, Month, Year, Category, Chapter, List, ElementInList
 
+admin.site.register(Mood)
 admin.site.register(Day)
 admin.site.register(Month)
 admin.site.register(Year)
