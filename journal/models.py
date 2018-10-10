@@ -4,10 +4,11 @@ from django import forms
 
 
 class Day(models.Model):
-    date = models.DateField()
+    date = models.DateField(primary_key=True)
     one_sentence_description = models.CharField(max_length=200)
-    today_i_learned = models.CharField("Today I learned",max_length=200)
-    tags = models.CharField(max_length=200)
+    today_i_learned = models.CharField("Today I learned", max_length=200, blank=True)
+    tags = models.CharField(max_length=200, blank=True)
+    food_eaten = models.TextField(max_length=500, blank=True)
     content = models.TextField(max_length=10000)
 
     def __str__(self):
@@ -15,7 +16,7 @@ class Day(models.Model):
 
 
 class Month(models.Model):
-    date = models.DateField()
+    date = models.DateField(primary_key=True)
     one_sentence_description = models.CharField(max_length=200)
     tags = models.CharField(max_length=200)
     content = models.TextField(max_length=10000)
@@ -25,7 +26,7 @@ class Month(models.Model):
 
 
 class Year(models.Model):
-    year = models.PositiveIntegerField()
+    year = models.PositiveIntegerField(primary_key=True)
     one_sentence_description = models.CharField(max_length=200)
     tags = models.CharField(max_length=200)
     content = models.TextField(max_length=10000)
@@ -35,7 +36,7 @@ class Year(models.Model):
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=30, primary_key=True)
     description = models.TextField(max_length=1000, blank=True)
 
     class Meta:
@@ -56,7 +57,7 @@ class Chapter(models.Model):
 
 
 class List(models.Model):
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=30, primary_key=True)
     description = models.TextField(max_length=1000, blank=True)
 
     def __str__(self):

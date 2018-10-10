@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=64)
+    name = models.CharField(max_length=64, primary_key=True)
     description = models.TextField(max_length=200, blank=True)
 
     class Meta:
@@ -18,18 +18,11 @@ class ToDoItem(models.Model):
     name = models.CharField(max_length=64)
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
     due = models.DateField(null=True, blank=True)
-    reps = (
-        ('no', 'Never'),
-        ('day', 'Every day'),
-        ('week', 'Every week'),
-        ('month', 'Every month'),
-        ('year', 'Every year')
-    )
-    repetition = models.CharField(max_length=5, choices=reps, default='no')
-
+    done = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
+
 
 class PomodoroSession(models.Model):
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
@@ -37,4 +30,4 @@ class PomodoroSession(models.Model):
     duration = models.DurationField()
 
     def __str__(self):
-        return str(self.date) + ' | ' + str(self.duration) + ' | ' + str(self.category)
+        return str(self.date) + ' | ' + str(self.duration.minutes) + ' | ' + str(self.category)

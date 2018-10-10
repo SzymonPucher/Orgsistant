@@ -46,7 +46,7 @@ class Location(models.Model):
 
 
 class Category(models.Model):
-    parent = models.ForeignKey('self',blank=True, null=True ,related_name='children',on_delete=models.CASCADE)
+    parent = models.ForeignKey('self',blank=True, null=True, related_name='children', on_delete=models.CASCADE)
     name = models.CharField(max_length=64)
     budget = models.DecimalField(max_digits=9, decimal_places=2, null=True, blank=True)
     description = models.TextField(max_length=200, blank=True)
