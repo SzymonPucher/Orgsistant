@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th>Day</th>
+    <th>Today I learned</th>
+    <th>Day in one sentence</th>
+    <th>Description</th>
+  </tr>
+  {% for d in days %}
+  <tr>
+    <td>{{ d.Date }}</td>
+    <td>{{ d.TIL }}</td>
+    <td>{{ d.One_sentence_description }}</td>
+    <td>{{ d.Description }}</td>
+  </tr>
+  {% endfor %}
+</table>

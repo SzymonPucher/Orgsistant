@@ -1,0 +1,46 @@
+<table>
+  <tr>
+    <th>Category Name</th>
+    <th>Description</th>
+  </tr>
+  {% for c in category %}
+  <tr>
+    <td>{{ c.Name }}</td>
+    <td>{{ c.Description }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<table>
+  <tr>
+    <th>Type Name</th>
+    <th>Description</th>
+  </tr>
+  {% for t in shop %}
+  <tr>
+    <td>{{ t.Name }}</td>
+    <td>{{ t.Description }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<table>
+  <tr>
+    <th>Product Name</th>
+    <th>Type</th>
+    <th>Category</th>
+    <th>Price</th>
+    <th>Time</th>
+    <th>Localization</th>
+  </tr>
+  {% for p in product %}
+  <tr>
+    <td>{{ p.Product.Name }}</td>
+    <td>{{ p.Product.Type.Name }}</td>
+    <td>{{ p.Category.Name }}</td>
+    <td>{{ p.Price }}</td>
+    <td>{{ p.Time }}</td>
+    <td>{{ p.Localization.Name }}</td>
+  </tr>
+  {% endfor %}
+</table>

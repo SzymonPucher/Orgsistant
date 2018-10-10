@@ -30,6 +30,10 @@ DEBUG = True
 # Application definition
 
 INSTALLED_APPS = [
+    'organizer.apps.OrganizerConfig',
+    'budget.apps.BudgetConfig',
+    'journal.apps.JournalConfig',
+    'nutrition.apps.NutritionConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
