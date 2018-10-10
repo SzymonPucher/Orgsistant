@@ -17,7 +17,7 @@ class Category(models.Model):
 class Recipe(models.Model):
     name = models.CharField(max_length=128, unique=True)
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
-    image = models.ImageField()
+    image = models.ImageField(blank=True, null=True)
     cooking_time = models.DurationField()
     estimated_price = models.DecimalField(max_digits=5, decimal_places=2)
     currency = models.ForeignKey(Currency, on_delete=models.PROTECT, default=1)

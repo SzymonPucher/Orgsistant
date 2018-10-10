@@ -12,7 +12,7 @@ class Mood(models.Model):
 class Day(models.Model):
     date = models.DateField(unique=True)
     mood = models.ForeignKey(Mood, on_delete=models.PROTECT)
-    important_thing_that_happened = models.CharField(max_length=200)
+    important_thing_that_happened = models.CharField(max_length=200, blank=True)
     one_sentence_description = models.CharField(max_length=200)
     today_i_learned = models.CharField("Today I learned", max_length=200, blank=True)
     food_eaten = models.CharField(max_length=500, blank=True)
