@@ -161,7 +161,7 @@ def load_data(apps, schema_editor):
     Category(name='Credit/Debit Card insurance', parent=Category.objects.get(name='Insurance'), description='Try to drop them, clever talk.').save()
     Category(name='Travel insurance', parent=Category.objects.get(name='Insurance'), description='Better be save on those skies.').save()
     Category(name='Health insurance', parent=Category.objects.get(name='Insurance'), description='Isn\'t it tax in Poland.').save()
-    Category(name="Homeowner's or renter's insurance", parent=Category.objects.get(name='Insurance'), description='Better get it back.').save()
+    Category(name="Home insurance", parent=Category.objects.get(name='Insurance'), description='Better get it back.').save()
     Category(name='Auto insurance', parent=Category.objects.get(name='Insurance'), description='Another downside to owning a car.').save()
     Category(name='Life insurance', parent=Category.objects.get(name='Insurance'), description='Wow, this gives perspective.').save()
     Category(name='Disability insurance', parent=Category.objects.get(name='Insurance'), description='Isn\'t it the travel one?').save()
