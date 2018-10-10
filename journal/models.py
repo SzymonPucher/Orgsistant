@@ -8,7 +8,7 @@ class Day(models.Model):
     one_sentence_description = models.CharField(max_length=200)
     today_i_learned = models.CharField("Today I learned", max_length=200, blank=True)
     tags = models.CharField(max_length=200, blank=True)
-    food_eaten = models.TextField(max_length=500, blank=True)
+    food_eaten = models.CharField(max_length=500, blank=True)
     content = models.TextField(max_length=10000)
 
     def __str__(self):
