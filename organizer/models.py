@@ -21,6 +21,8 @@ class ToDoItem(models.Model):
     done = models.BooleanField(default=False)
 
     def __str__(self):
+        if self.done:
+            return 'Done | ' + self.name
         return self.name
 
     def change_status(self):
@@ -32,7 +34,7 @@ class ToDoItem(models.Model):
 
 class PomodoroSession(models.Model):
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
-    date = models.DateField(null=True, blank=True)
+    date = models.DateField()
     duration = models.DurationField()
 
     def __str__(self):

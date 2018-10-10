@@ -2,9 +2,17 @@ from django.db import models
 from django import forms
 # Create your models here.
 
+class Mood(models.Model):
+    name = models.CharField(max_length=30, unique=True)
+    description = models.TextField(max_length=1000, blank=True)
+
+    def __str__(self):
+        return str(self.name)
 
 class Day(models.Model):
     date = models.DateField(unique=True)
+    mood = models.ForeignKey(Mood, on_delete=models.PROTECT)
+    important_thing_that_happened = models.CharField(max_length=200)
     one_sentence_description = models.CharField(max_length=200)
     today_i_learned = models.CharField("Today I learned", max_length=200, blank=True)
     food_eaten = models.CharField(max_length=500, blank=True)
@@ -18,17 +26,19 @@ class Day(models.Model):
 class Month(models.Model):
     date = models.DateField(unique=True)
     one_sentence_description = models.CharField(max_length=200)
-    tags = models.CharField(max_length=200)
+    accomplishments = models.TextField(max_length=2000)
+    tags = models.CharField(max_length=200, blank=True)
     content = models.TextField(max_length=10000)
 
     def __str__(self):
-        return str(self.date) + ' | ' + str(self.one_sentence_description)
+        return str(self.date.year) + '-' + str(self.date.month) + ' | ' + str(self.one_sentence_description)
 
 
 class Year(models.Model):
     year = models.PositiveIntegerField(unique=True)
     one_sentence_description = models.CharField(max_length=200)
-    tags = models.CharField(max_length=200)
+    accomplishments = models.TextField(max_length=2000)
+    tags = models.CharField(max_length=200, blank=True)
     content = models.TextField(max_length=10000)
 
     def __str__(self):
@@ -47,17 +57,17 @@ class Category(models.Model):
 
 
 class Chapter(models.Model):
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=50)
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
     attributes = models.TextField(max_length=1000, blank=True)
-    content = models.TextField(max_length=100000, blank=True)
+    content = models.TextField(max_length=100000)
 
     def __str__(self):
-        return str(self.name)
+        return str(self.category) + str(self.name)
 
 
 class List(models.Model):
-    name = models.CharField(max_length=30, unique=True)
+    name = models.CharField(max_length=50, unique=True)
     description = models.TextField(max_length=1000, blank=True)
 
     def __str__(self):
@@ -73,4 +83,4 @@ class ElementInList(models.Model):
         verbose_name_plural = "List elements"
 
     def __str__(self):
-        return str(self.name)
+        return str(self.list) + str(self.name)
