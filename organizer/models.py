@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=64, unique=True)
+    name = models.CharField(max_length=32, unique=True)
     description = models.TextField(max_length=200, blank=True)
 
     class Meta:
@@ -22,6 +22,12 @@ class ToDoItem(models.Model):
 
     def __str__(self):
         return self.name
+
+    def change_status(self):
+        if self.done:
+            self.done = False
+        else:
+            self.done = True
 
 
 class PomodoroSession(models.Model):

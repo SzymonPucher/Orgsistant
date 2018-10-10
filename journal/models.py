@@ -4,11 +4,11 @@ from django import forms
 
 
 class Day(models.Model):
-    date = models.DateField(primary_key=True)
+    date = models.DateField(unique=True)
     one_sentence_description = models.CharField(max_length=200)
     today_i_learned = models.CharField("Today I learned", max_length=200, blank=True)
-    tags = models.CharField(max_length=200, blank=True)
     food_eaten = models.CharField(max_length=500, blank=True)
+    tags = models.CharField(max_length=200, blank=True)
     content = models.TextField(max_length=10000)
 
     def __str__(self):
@@ -16,7 +16,7 @@ class Day(models.Model):
 
 
 class Month(models.Model):
-    date = models.DateField(primary_key=True)
+    date = models.DateField(unique=True)
     one_sentence_description = models.CharField(max_length=200)
     tags = models.CharField(max_length=200)
     content = models.TextField(max_length=10000)
@@ -26,7 +26,7 @@ class Month(models.Model):
 
 
 class Year(models.Model):
-    year = models.PositiveIntegerField(primary_key=True)
+    year = models.PositiveIntegerField(unique=True)
     one_sentence_description = models.CharField(max_length=200)
     tags = models.CharField(max_length=200)
     content = models.TextField(max_length=10000)
@@ -36,7 +36,7 @@ class Year(models.Model):
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=30, primary_key=True)
+    name = models.CharField(max_length=30, unique=True)
     description = models.TextField(max_length=1000, blank=True)
 
     class Meta:
@@ -57,7 +57,7 @@ class Chapter(models.Model):
 
 
 class List(models.Model):
-    name = models.CharField(max_length=30, primary_key=True)
+    name = models.CharField(max_length=30, unique=True)
     description = models.TextField(max_length=1000, blank=True)
 
     def __str__(self):
@@ -67,8 +67,6 @@ class List(models.Model):
 class ElementInList(models.Model):
     name = models.CharField(max_length=50)
     list = models.ForeignKey(List, on_delete=models.PROTECT)
-    status = models.CharField(max_length=30, blank=True)
-    location = models.CharField(max_length=50, blank=True)
     description = models.TextField(max_length=1000, blank=True)
 
     class Meta:

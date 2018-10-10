@@ -23,7 +23,7 @@ class ProductNutritionValues(models.Model):
 
 
 class Recipe(models.Model):
-    name = models.CharField(max_length=128, primary_key=True)
+    name = models.CharField(max_length=128, unique=True)
     image = models.ImageField()
     ingredients = models.TextField(max_length=10000)
     cooking_instructions = models.TextField(max_length=10000)
