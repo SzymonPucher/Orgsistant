@@ -22,6 +22,8 @@ Products - list of all products with statistics in details(another page)
 Summary - summary for chosen timeframe, default: last year. Divided into incomes and spendings
 
 """
+
+
 # Create your views here.
 def index(request):
     context = {}
