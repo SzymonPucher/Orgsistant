@@ -1,144 +1,38 @@
-
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'budget/table.css' %}">
 
-{% for product in products %}
-    <p>{{ product }}</p>
-{% endfor %}
-
-
-<h1>Basic Table Styles</h1>
-<table>
-  <caption>Table</caption>
-  <thead>
-    <tr>
-      <th>Column 1</th>
-      <th>Column 2</th>
-      <th>Column 3</th>
-      <th>Column 4</th>
-      <th>Column 5</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Cell 1</td>
-      <td>Cell 2</td>
-      <td>Cell 3</td>
-      <td>Cell 4</td>
-      <td>Cell 5</td>
-    </tr>
-    <tr>
-      <td>Cell 6</td>
-      <td>Cell 7</td>
-      <td>Cell 8</td>
-      <td>Cell 9</td>
-      <td>Cell 10</td>
-    </tr>
-    <tr>
-      <td>Cell 11</td>
-      <td>Cell 12</td>
-      <td>Cell 13</td>
-      <td>Cell 14</td>
-      <td>Cell 15</td>
-    </tr>
-  </tbody>
-  <tfoot>
-    <tr>
-      <th>Column 1</th>
-      <th>Column 2</th>
-      <th>Column 3</th>
-      <th>Column 4</th>
-      <th>Column 5</th>
-    </tr>
-  </tfoot>
-</table>
-<!-- Zebra Striping -->
-<table data-table-theme="default zebra">
-  <caption>Default + Zebra</caption>
-  <thead>
-    <tr>
-      <th>Column 1</th>
-      <th>Column 2</th>
-      <th>Column 3</th>
-      <th>Column 4</th>
-      <th>Column 5</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Cell 1</td>
-      <td>Cell 2</td>
-      <td>Cell 3</td>
-      <td>Cell 4</td>
-      <td>Cell 5</td>
-    </tr>
-    <tr>
-      <td>Cell 6</td>
-      <td>Cell 7</td>
-      <td>Cell 8</td>
-      <td>Cell 9</td>
-      <td>Cell 10</td>
-    </tr>
-    <tr>
-      <td>Cell 11</td>
-      <td>Cell 12</td>
-      <td>Cell 13</td>
-      <td>Cell 14</td>
-      <td>Cell 15</td>
-    </tr>
-  </tbody>
-  <tfoot>
-    <tr>
-      <th>Column 1</th>
-      <th>Column 2</th>
-      <th>Column 3</th>
-      <th>Column 4</th>
-      <th>Column 5</th>
-    </tr>
-  </tfoot>
-</table>
-<!-- Dark Theme -->
 <table data-table-theme="dark zebra">
-  <caption>Dark</caption>
-  <thead>
+    <caption>Bought Products</caption>
+    <thead>
     <tr>
-      <th>Column 1</th>
-      <th>Column 2</th>
-      <th>Column 3</th>
-      <th>Column 4</th>
-      <th>Column 5</th>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Payment Method</th>
+        <th>Date</th>
+        <th>Vendor</th>
+        <th>Location</th>
     </tr>
-  </thead>
-  <tbody>
+    </thead>
+    <tbody>
+    {% for product in products %}
+        <tr>
+            <td>{{ product.product }}</td>
+            <td>{{ product.price }} {{ product.currency }}</td>
+            <td>{{ product.payment_method }}</td>
+            <td>{{ product.date }}</td>
+            <td>{{ product.vendor }}</td>
+            <td>{{ product.location }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot>
     <tr>
-      <td>Cell 1</td>
-      <td>Cell 2</td>
-      <td>Cell 3</td>
-      <td>Cell 4</td>
-      <td>Cell 5</td>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Payment Method</th>
+        <th>Date</th>
+        <th>Vendor</th>
+        <th>Location</th>
     </tr>
-    <tr>
-      <td>Cell 6</td>
-      <td>Cell 7</td>
-      <td>Cell 8</td>
-      <td>Cell 9</td>
-      <td>Cell 10</td>
-    </tr>
-    <tr>
-      <td>Cell 11</td>
-      <td>Cell 12</td>
-      <td>Cell 13</td>
-      <td>Cell 14</td>
-      <td>Cell 15</td>
-    </tr>
-  </tbody>
-  <tfoot>
-    <tr>
-      <th>Column 1</th>
-      <th>Column 2</th>
-      <th>Column 3</th>
-      <th>Column 4</th>
-      <th>Column 5</th>
-    </tr>
-  </tfoot>
+    </tfoot>
 </table>
