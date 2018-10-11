@@ -1,3 +1,34 @@
-{% for t in todo %}
-    <p>{{ t }}</p>
-{% endfor %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'budget/table.css' %}">
+
+<table data-table-theme="dark zebra">
+    <caption>Bought Products</caption>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Due</th>
+        <th>Done</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for t in todo %}
+        <tr>
+            <td>{{ t.name }}</td>
+            <td>{{ t.category }}</td>
+            <td>{{ t.due }}</td>
+            <td>{{ t.done }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot>
+    <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Due</th>
+        <th>Done</th>
+    </tr>
+    </tfoot>
+</table>
+
+
