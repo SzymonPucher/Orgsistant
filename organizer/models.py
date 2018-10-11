@@ -38,4 +38,4 @@ class PomodoroSession(models.Model):
     duration = models.DurationField()
 
     def __str__(self):
-        return str(self.date) + ' | ' + str(self.duration.minutes) + ' | ' + str(self.category)
+        return str(self.duration.seconds // 60 % 60) + ' min | ' + str(self.date) + ' | ' + str(self.category)
