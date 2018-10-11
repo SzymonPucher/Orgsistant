@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+import datetime
 from django.http import HttpResponse
 
 from .models import Category, Currency, PaymentMethod, Vendor, Location, Product, BoughtProduct, InnerTransfer,\
@@ -26,5 +26,6 @@ Summary - summary for chosen timeframe, default: last year. Divided into incomes
 
 # Create your views here.
 def index(request):
-    context = {}
+    all_bought_today = BoughtProduct.objects.filter(date=datetime.date.today())
+    context = {'products': all_bought_today}
     return render(request, 'budget/index.html', context)

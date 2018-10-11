@@ -2,12 +2,14 @@ from django.db import models
 from django import forms
 # Create your models here.
 
+
 class Mood(models.Model):
     name = models.CharField(max_length=30, unique=True)
     description = models.TextField(max_length=1000, blank=True)
 
     def __str__(self):
         return str(self.name)
+
 
 class Day(models.Model):
     date = models.DateField(unique=True)
@@ -63,7 +65,7 @@ class Chapter(models.Model):
     content = models.TextField(max_length=100000)
 
     def __str__(self):
-        return str(self.category) + str(self.name)
+        return str(self.category) + ' | ' + str(self.name)
 
 
 class List(models.Model):

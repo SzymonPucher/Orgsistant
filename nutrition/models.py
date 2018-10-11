@@ -11,7 +11,7 @@ class Category(models.Model):
         verbose_name_plural = "Categories"
 
     def __str__(self):
-        return str(self.name)
+        return self.name
 
 
 class Recipe(models.Model):
