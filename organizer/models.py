@@ -22,8 +22,8 @@ class ToDoItem(models.Model):
 
     def __str__(self):
         if self.done:
-            return 'Done | ' + self.name
-        return self.name
+            return 'Done | ' + str(self.category) + ' | ' + self.name
+        return str(self.category) + ' | ' + self.name
 
     def change_status(self):
         if self.done:
