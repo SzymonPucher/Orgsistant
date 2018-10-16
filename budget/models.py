@@ -93,7 +93,7 @@ class BoughtProduct(models.Model):
     location = models.ForeignKey(Location, on_delete=models.PROTECT, default=1)
 
     class Meta:
-        ordering = ('date', 'price')
+        ordering = ('-date', 'price')
 
     def __str__(self):
         return str(self.price) + str(self.currency) + ' ' + str(self.product)

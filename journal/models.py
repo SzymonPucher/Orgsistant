@@ -21,6 +21,9 @@ class Day(models.Model):
     tags = models.CharField(max_length=200, blank=True)
     content = models.TextField(max_length=10000)
 
+    class Meta:
+        ordering = ('-date',)
+
     def __str__(self):
         return str(self.date) + ' | ' + str(self.one_sentence_description)
 

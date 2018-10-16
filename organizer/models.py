@@ -26,6 +26,9 @@ class ToDoItem(models.Model):
     due = models.DateField(null=True, blank=True)
     done = models.BooleanField(default=False)
 
+    class Meta:
+        ordering = ('category__name', 'name')
+
     def __str__(self):
         if self.done:
             return 'Done | ' + str(self.category) + ' | ' + self.name
