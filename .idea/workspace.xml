@@ -111,10 +111,10 @@
           <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/budget/models.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="748">
-                  <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+                <state relative-caret-position="462">
+                  <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
                   <folding>
-                    <marker date="1539719448984" expanded="true" signature="1504:1547" ph="..." />
+                    <marker date="1539719990056" expanded="true" signature="1504:1547" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -127,10 +127,10 @@
           <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/budget/models.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="600">
-                  <caret line="75" column="22" lean-forward="true" selection-start-line="75" selection-start-column="22" selection-end-line="75" selection-end-column="22" />
+                <state relative-caret-position="446">
+                  <caret line="95" column="36" lean-forward="true" selection-start-line="95" selection-start-column="36" selection-end-line="95" selection-end-column="36" />
                   <folding>
-                    <marker date="1539719448984" expanded="true" signature="1504:1547" ph="..." />
+                    <marker date="1539719990056" expanded="true" signature="1504:1547" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -467,7 +467,14 @@
       <option name="project" value="LOCAL" />
       <updated>1539719624543</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Sorting">
+      <created>1539719646924</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1539719646924</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -538,7 +545,8 @@
     <MESSAGE value="Test" />
     <MESSAGE value="Testhbhbh" />
     <MESSAGE value="Finish github problems, reverse testing changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finish github problems, reverse testing changes" />
+    <MESSAGE value="Sorting" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sorting" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -550,7 +558,7 @@
         <state relative-caret-position="814">
           <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding>
-            <marker date="1539719448984" expanded="true" signature="1504:1547" ph="..." />
+            <marker date="1539719990056" expanded="true" signature="1504:1547" ph="..." />
           </folding>
         </state>
       </provider>
@@ -622,7 +630,7 @@
         <state relative-caret-position="814">
           <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding>
-            <marker date="1539719448984" expanded="true" signature="1504:1547" ph="..." />
+            <marker date="1539719990056" expanded="true" signature="1504:1547" ph="..." />
           </folding>
         </state>
       </provider>
@@ -701,7 +709,7 @@
         <state relative-caret-position="814">
           <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding>
-            <marker date="1539719448984" expanded="true" signature="1504:1547" ph="..." />
+            <marker date="1539719990056" expanded="true" signature="1504:1547" ph="..." />
           </folding>
         </state>
       </provider>
@@ -928,10 +936,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/budget/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="75" column="22" lean-forward="true" selection-start-line="75" selection-start-column="22" selection-end-line="75" selection-end-column="22" />
+        <state relative-caret-position="446">
+          <caret line="95" column="36" lean-forward="true" selection-start-line="95" selection-start-column="36" selection-end-line="95" selection-end-column="36" />
           <folding>
-            <marker date="1539719448984" expanded="true" signature="1504:1547" ph="..." />
+            <marker date="1539719990056" expanded="true" signature="1504:1547" ph="..." />
           </folding>
         </state>
       </provider>
