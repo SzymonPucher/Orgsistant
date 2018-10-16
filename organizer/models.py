@@ -4,6 +4,7 @@ from django.db import models
 
 
 class Category(models.Model):
+    parent = models.ForeignKey('self', blank=True, null=True, related_name='children', on_delete=models.CASCADE)
     name = models.CharField(max_length=32, unique=True)
     description = models.TextField(max_length=200, blank=True)
 
@@ -11,7 +12,12 @@ class Category(models.Model):
         verbose_name_plural = "Categories"
 
     def __str__(self):
-        return self.name
+        full_path = [self.name]
+        k = self.parent
+        while k is not None:
+            full_path.append(k.name)
+            k = k.parent
+        return ' -> '.join(full_path[::-1])
 
 
 class ToDoItem(models.Model):

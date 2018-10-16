@@ -85,4 +85,4 @@ class ElementInList(models.Model):
         verbose_name_plural = "List elements"
 
     def __str__(self):
-        return str(self.list) + str(self.name)
+        return str(self.list) + ' | ' + str(self.name)

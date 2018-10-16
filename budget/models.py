@@ -49,10 +49,11 @@ class Category(models.Model):
         while k is not None:
             full_path.append(k.name)
             k = k.parent
-        return ' -> '.join(full_path[::1])
+        return ' -> '.join(full_path[::-1])
 
     class Meta:
         verbose_name_plural = "Categories"
+        ordering = ('parent__parent__name','parent__name','name')
 
     def cat(self, name):
         cats = []
