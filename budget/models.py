@@ -53,7 +53,7 @@ class Category(models.Model):
 
     class Meta:
         verbose_name_plural = "Categories"
-        ordering = ('parent__parent__name','parent__name','name')
+        ordering = ('parent__parent__parent__name', 'parent__parent__name', 'parent__name', 'name')
 
     def cat(self, name):
         cats = []
@@ -78,6 +78,10 @@ class Product(models.Model):
             return True
         return False
 
+    class Meta:
+        ordering = ('name',)
+
+
 
 class BoughtProduct(models.Model):
     product = models.ForeignKey(Product, on_delete=models.PROTECT)
@@ -87,6 +91,9 @@ class BoughtProduct(models.Model):
     date = models.DateField()
     vendor = models.ForeignKey(Vendor, on_delete=models.PROTECT, default=1)
     location = models.ForeignKey(Location, on_delete=models.PROTECT, default=1)
+
+    class Meta:
+        ordering = ('date',)
 
     def __str__(self):
         return str(self.price) + str(self.currency) + ' ' + str(self.product)
