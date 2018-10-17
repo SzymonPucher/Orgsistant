@@ -28,7 +28,7 @@ class ToDoItem(models.Model):
     done = models.BooleanField(default=False)
 
     class Meta:
-        ordering = ('-done', 'category__name', 'name')
+        ordering = ('done', 'category__name', 'name')
 
     def __str__(self):
         if self.done:
