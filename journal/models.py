@@ -50,6 +50,7 @@ class Year(models.Model):
     one_sentence_description = models.CharField(max_length=200)
     accomplishments = models.TextField(max_length=2000)
     tags = models.CharField(max_length=200, blank=True)
+    portrait = models.ImageField(blank=True, null=True)
     content = models.TextField(max_length=10000)
 
     class Meta:
