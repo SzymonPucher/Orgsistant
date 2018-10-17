@@ -6,7 +6,6 @@ table {
   margin: 0 auto;
   text-align: center;
 }
-
 /* Default Table Style */
 table {
   color: #ddd;
@@ -14,7 +13,6 @@ table {
   font-size: 12pt;
   border-collapse: collapse;
   border: 1px solid grey;
-
 }
 table thead th,
 table tfoot th {
