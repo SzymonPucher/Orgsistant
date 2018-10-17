@@ -10,6 +10,7 @@ class Category(models.Model):
 
     class Meta:
         verbose_name_plural = "Categories"
+        ordering = ('name',)
 
     def __str__(self):
         full_path = [self.name]
@@ -17,7 +18,7 @@ class Category(models.Model):
         while k is not None:
             full_path.append(k.name)
             k = k.parent
-        return ' -> '.join(full_path[::-1])
+        return ' <- '.join(full_path[::1])
 
 
 class ToDoItem(models.Model):
@@ -45,6 +46,9 @@ class PomodoroSession(models.Model):
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
     date = models.DateField()
     duration = models.DurationField()
+
+    class Meta:
+        ordering = ('-date', 'category__name')
 
     def __str__(self):
         return str(self.duration.seconds // 60 % 60) + ' min | ' + str(self.date) + ' | ' + str(self.category)

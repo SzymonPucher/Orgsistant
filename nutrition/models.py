@@ -9,6 +9,7 @@ class Category(models.Model):
 
     class Meta:
         verbose_name_plural = "Categories"
+        ordering = ('name',)
 
     def __str__(self):
         return self.name
@@ -23,6 +24,9 @@ class Recipe(models.Model):
     currency = models.ForeignKey(Currency, on_delete=models.PROTECT, default=1)
     ingredients = models.TextField(max_length=2000)
     cooking_instructions = models.TextField(max_length=10000)
+
+    class Meta:
+        ordering = ('name',)
 
     def __str__(self):
         return self.name
