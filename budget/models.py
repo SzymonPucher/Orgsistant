@@ -81,7 +81,7 @@ class Product(models.Model):
     description = models.TextField(max_length=300, blank=True)
 
     def __str__(self):
-        return self.name + ' - ' + str(self.category)
+        return  self.name + ' - ' + str(self.category)
 
     def is_food(self):
         if 'Food' in str(self.category):
@@ -105,7 +105,7 @@ class BoughtProduct(models.Model):
         ordering = ('-date', 'price')
 
     def __str__(self):
-        return str(self.price) + str(self.currency) + ' ' + str(self.product)
+        return str(self.date) + ' | ' + str(self.price) + ' ' + str(self.currency) + ' ' + str(self.product)
 
 
 class FreeProduct(models.Model):
