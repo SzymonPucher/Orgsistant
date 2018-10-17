@@ -20,24 +20,19 @@ table thead th,
 table tfoot th {
   color: #aaa;
   background: rgba(0255,255,255,.15);
-
 }
 table caption {
   padding:.5em;
 }
 table th,
 table td {
-
   padding: .5em;
   border: 1px solid grey;
 }
-
-
 a{
   color: #ddd;
   text-decoration: none;
 }
-
 .soon0{
   background: #230105;
 }
@@ -49,4 +44,7 @@ a{
 }
 .is_due{
   background-color: black;
+}
+.light_green{
+  background: rgb(4, 35, 4);
 }

@@ -13,7 +13,7 @@
     </thead>
     <tbody>
     {% for t in ed %}
-        <tr>
+        <tr{% if t.done %} class="light_green" {% endif %}>
             <td>{{ t.name }}</td>
             <td>{{ t.category }}</td>
             <td><a href="{% url 'oindex' t.id %}">{{ t.done }}</a></td>
