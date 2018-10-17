@@ -2,13 +2,13 @@
 <link rel="stylesheet" type="text/css" href="{% static 'budget/table.css' %}">
 
 <table data-table-theme="dark zebra">
-    <caption>To Do List</caption>
+    <caption>Every day</caption>
     <thead>
     <tr>
         <th>Name</th>
         <th>Category</th>
-        <th>Due</th>
         <th>Done</th>
+        <th>Change</th>
     </tr>
     </thead>
     <tbody>
@@ -16,17 +16,8 @@
         <tr>
             <td>{{ t.name }}</td>
             <td>{{ t.category }}</td>
-            <td>{{ t.due }}</td>
-            <td>{{ t.done }}</td>
-        </tr>
-    {% endfor %}
-    <tr><td></td><td></td><td></td><td></td></tr>
-    {% for t in todo %}
-        <tr>
-            <td>{{ t.name }}</td>
-            <td>{{ t.category }}</td>
-            <td>{{ t.due }}</td>
-            <td>{{ t.done }}</td>
+            <td><a href="{% url 'oindex' t.id %}">{{ t.done }}</a></td>
+            <td><a href="/../../admin/organizer/todoitem/{{ t.id }}/change/">Edit</a></td>
         </tr>
     {% endfor %}
     </tbody>
@@ -34,8 +25,46 @@
     <tr>
         <th>Name</th>
         <th>Category</th>
-        <th>Due</th>
         <th>Done</th>
+        <th>Change</th>
+    </tr>
+    </tfoot>
+</table>
+<table data-table-theme="dark zebra">
+    <caption>General ToDo list</caption>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Done</th>
+        <th>Change</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for t in todo %}
+        <tr class="{{ t.how_soon }}">
+            <td>{{ t.name }}</td>
+            <td>{{ t.category }}</td>
+            <td><a href="{% url 'oindex' t.id %}">{{ t.done }}</a></td>
+            <td><a href="/../../admin/organizer/todoitem/{{ t.id }}/change/">Edit</a></td>
+        </tr>
+    {% endfor %}
+    <tr><td></td><td></td><td></td><td></td></tr>
+    {% for t in todo_done %}
+        <tr>
+            <td>{{ t.name }}</td>
+            <td>{{ t.category }}</td>
+            <td><a href="{% url 'oindex' t.id %}">{{ t.done }}</a></td>
+            <td><a href="/../../admin/organizer/todoitem/{{ t.id }}/change/">Edit</a></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot>
+    <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Done</th>
+        <th>Change</th>
     </tr>
     </tfoot>
 </table>

@@ -1,5 +1,5 @@
 from django.db import models
-
+import datetime
 # Create your models here.
 
 
@@ -28,7 +28,7 @@ class ToDoItem(models.Model):
     done = models.BooleanField(default=False)
 
     class Meta:
-        ordering = ('category__name', 'name')
+        ordering = ('-done', 'category__name', 'name')
 
     def __str__(self):
         if self.done:
@@ -38,8 +38,20 @@ class ToDoItem(models.Model):
     def change_status(self):
         if self.done:
             self.done = False
+            if self.category.name == 'Codzienne':
+                self.due = None
         else:
             self.done = True
+            if self.category.name == 'Codzienne':
+                self.due = datetime.datetime.today()
+        self.save()
+
+    def how_soon(self):
+        if self.due is not None:
+            for i in range(3):
+                if self.due - datetime.datetime.today().date() == datetime.timedelta(i):
+                    return 'soon' + str(i)
+            return 'is_due'
 
 
 class PomodoroSession(models.Model):
