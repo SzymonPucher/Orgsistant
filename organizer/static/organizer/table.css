@@ -1,0 +1,48 @@
+body {
+    background-color: #222;
+}
+/* Center tables for demo */
+table {
+  margin: 0 auto;
+  text-align: center;
+}
+/* Default Table Style */
+table {
+  color: #ddd;
+  background: #333;
+  font-size: 12pt;
+  border-collapse: collapse;
+  border: 1px solid grey;
+}
+table thead th,
+table tfoot th {
+  color: #aaa;
+  background: rgba(0255,255,255,.15);
+}
+table caption {
+  padding:.5em;
+}
+table th,
+table td {
+  padding: .5em;
+  border: 1px solid grey;
+}
+a{
+  color: #ddd;
+  text-decoration: none;
+}
+.soon0{
+  background: #230105;
+}
+.soon1{
+  background-color: #430500;
+}
+.soon2{
+  background-color: #6c1c03;
+}
+.is_due{
+  background-color: black;
+}
+.light_green{
+  background: rgb(4, 35, 4);
+}
