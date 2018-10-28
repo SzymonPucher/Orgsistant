@@ -16,6 +16,9 @@ def index(request, id=-1):
     for item in every_day_done:
         if item.due is not None and item.due < datetime.datetime.today().date() and item.done is True:
             item.done = False
+            item.streak_up()
             item.save()
+        else:
+            item.streak_reset()
     context = {'todo': todos, 'ed': every_day_done, 'todo_done': todos_done}
     return render(request, 'organizer/index.html', context)

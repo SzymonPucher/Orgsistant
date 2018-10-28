@@ -2,6 +2,7 @@ from django.db import models
 import datetime
 # Create your models here.
 
+# TODO: Streak for 'Codzienne'
 
 class Category(models.Model):
     parent = models.ForeignKey('self', blank=True, null=True, related_name='children', on_delete=models.CASCADE)
@@ -52,6 +53,25 @@ class ToDoItem(models.Model):
                 if self.due - datetime.datetime.today().date() == datetime.timedelta(i):
                     return 'soon' + str(i)
             return 'is_due'
+
+    def streak_up(self):
+        if len(self.name.split(' | Streak: ')) == 1:
+            self.name = self.name + ' | Streak: 1'
+        else:
+            self.name = self.get_name() + ' | Streak: ' + str(self.get_streak() + 1)
+        self.save()
+
+    def streak_reset(self):
+        self.name = self.name.split(' | ')[0]
+        self.save()
+
+    def get_name(self):
+        return self.name.split(' | ')[0]
+
+    def get_streak(self):
+        if len(self.name.split(' | Streak: ')) > 1:
+            return int(self.name.split(' | Streak: ')[1])
+        return 0
 
 
 class PomodoroSession(models.Model):
