@@ -1,6 +1,7 @@
 from django.db import models
 # Create your models here.
 
+# TODO: Typical products add with hide option
 
 class Currency(models.Model):
     name = models.CharField(max_length=3, unique=True)
@@ -63,7 +64,7 @@ class Category(models.Model):
 
     class Meta:
         verbose_name_plural = "Categories"
-        ordering = ('parent__parent__parent__name', 'parent__parent__name', 'parent__name', 'name')
+        ordering = ('parent__name', 'name')
 
     def cat(self, name):
         cats = []
