@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="28084073-11b8-4dfc-b289-d429b16dc4de" name="Default" comment="organizer styles create">
+    <list default="true" id="28084073-11b8-4dfc-b289-d429b16dc4de" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/budget/models.py" afterPath="$PROJECT_DIR$/budget/models.py" />
-      <change beforePath="$PROJECT_DIR$/organizer/models.py" afterPath="$PROJECT_DIR$/organizer/models.py" />
-      <change beforePath="$PROJECT_DIR$/organizer/views.py" afterPath="$PROJECT_DIR$/organizer/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -591,7 +588,14 @@
       <option name="project" value="LOCAL" />
       <updated>1540713431480</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Streaks added">
+      <created>1540713444880</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1540713444880</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -649,7 +653,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Time zone update" />
     <MESSAGE value="Heroku update" />
     <MESSAGE value="Fix pomodoro str bug" />
     <MESSAGE value="Change str method of todoitem class" />
@@ -674,7 +677,8 @@
     <MESSAGE value="nutrition styles create" />
     <MESSAGE value="organizer styles create" />
     <MESSAGE value="Categories sorting fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Categories sorting fix" />
+    <MESSAGE value="Streaks added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Streaks added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
