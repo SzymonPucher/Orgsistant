@@ -14,11 +14,13 @@ def index(request, id=-1):
     todos = ToDoItem.objects.exclude(category__name='Codzienne').exclude(done=True)
     every_day_done = ToDoItem.objects.filter(category__name='Codzienne')
     for item in every_day_done:
-        if item.due is not None and item.due < datetime.datetime.today().date() and item.done is True:
+        if item.due < datetime.datetime.today().date() and item.done is True:
             item.done = False
             item.streak_up()
-            item.save()
-        else:
+
+        elif item.due < datetime.datetime.today().date() and item.done is False:
             item.streak_reset()
+        item.due = datetime.datetime.today()
+        item.save()
     context = {'todo': todos, 'ed': every_day_done, 'todo_done': todos_done}
     return render(request, 'organizer/index.html', context)

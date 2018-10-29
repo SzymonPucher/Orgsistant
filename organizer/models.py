@@ -39,12 +39,8 @@ class ToDoItem(models.Model):
     def change_status(self):
         if self.done:
             self.done = False
-            if self.category.name == 'Codzienne':
-                self.due = None
         else:
             self.done = True
-            if self.category.name == 'Codzienne':
-                self.due = datetime.datetime.today()
         self.save()
 
     def how_soon(self):
