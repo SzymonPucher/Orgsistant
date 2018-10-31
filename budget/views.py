@@ -4,7 +4,7 @@ from django.http import HttpResponse
 
 from .models import Category, Currency, PaymentMethod, Vendor, Location, Product, BoughtProduct, InnerTransfer,\
                     IncomeSource, Income, Loan
-
+from .useful import get_timeframe
 """
 Components:
 Menu - Side menu, responsive to top one if opened on the phone.
@@ -26,6 +26,9 @@ Summary - summary for chosen timeframe, default: last year. Divided into incomes
 
 # Create your views here.
 def index(request):
+    f, l = BoughtProduct.objects.last(), BoughtProduct.objects.first()
+    timeframe = get_timeframe(f, l)
+    print(timeframe)
     all_bought_today = BoughtProduct.objects.filter(date=datetime.date.today())
     context = {'products': all_bought_today}
     return render(request, 'budget/index.html', context)
