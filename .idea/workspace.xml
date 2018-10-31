@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="28084073-11b8-4dfc-b289-d429b16dc4de" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/budget/useful.py" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/budget/views.py" afterPath="$PROJECT_DIR$/budget/views.py" />
       <change beforePath="$PROJECT_DIR$/organizer/views.py" afterPath="$PROJECT_DIR$/organizer/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -632,7 +630,14 @@
       <option name="project" value="LOCAL" />
       <updated>1540839704421</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Bought Product timeframe calculation">
+      <created>1540973257676</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1540973257676</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -690,7 +695,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Change str method of todoitem class" />
     <MESSAGE value="Basic display" />
     <MESSAGE value="Testing static" />
     <MESSAGE value="Nice basic table" />
@@ -715,7 +719,8 @@
     <MESSAGE value="Streaks added" />
     <MESSAGE value="IDK" />
     <MESSAGE value="Streak bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Streak bug fix" />
+    <MESSAGE value="Bought Product timeframe calculation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bought Product timeframe calculation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

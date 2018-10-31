@@ -5,11 +5,9 @@ import datetime
 
 # Create your views here.
 def index(request, id=-1):
-    try:
+    if(id >= 0):
         item = get_object_or_404(ToDoItem, pk=id)  # get ToDoItem with given id
         item.change_status()
-    except:
-        print('')
     todos_done = ToDoItem.objects.exclude(category__name='Codzienne').exclude(done=False)
     todos = ToDoItem.objects.exclude(category__name='Codzienne').exclude(done=True)
     every_day_done = ToDoItem.objects.filter(category__name='Codzienne')
