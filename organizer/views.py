@@ -20,5 +20,18 @@ def index(request, id=-1):
             item.streak_reset()
         item.due = datetime.datetime.today()
         item.save()
-    context = {'todo': todos, 'ed': every_day_done, 'todo_done': todos_done}
+
+    pomodoros = PomodoroSession.objects.all()
+    print(pomodoros)
+    pomos = []
+    for p in pomodoros:
+        x = True
+        for p_temp in pomos:
+            if p_temp[0] == str(p.date):
+                p_temp[1] += 1
+                x = False
+        if x:
+            pomos.append([str(p.date), 1])
+    print(pomos)
+    context = {'todo': todos, 'ed': every_day_done, 'todo_done': todos_done, 'pomodoros': pomos}
     return render(request, 'organizer/index.html', context)
