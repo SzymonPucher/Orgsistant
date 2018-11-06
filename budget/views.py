@@ -30,5 +30,12 @@ def index(request):
     time_frame = get_timeframe(f, l)
     print(time_frame)
     all_bought_today = BoughtProduct.objects.filter(date=datetime.date.today())
-    context = {'products': all_bought_today}
+    year, month = datetime.date.today().year, datetime.date.today().month
+    tms = BoughtProduct.objects.filter(date__year=year, date__month=month)
+    total_spend = 0
+    for i in tms:
+        total_spend += i.price
+    print(total_spend)
+    context = {'products': all_bought_today, 'spend': total_spend}
+
     return render(request, 'budget/index.html', context)
