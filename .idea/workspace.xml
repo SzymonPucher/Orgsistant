@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="28084073-11b8-4dfc-b289-d429b16dc4de" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/budget/views.py" afterPath="$PROJECT_DIR$/budget/views.py" />
+      <change beforePath="$PROJECT_DIR$/budget/templates/budget/index.html" afterPath="$PROJECT_DIR$/budget/templates/budget/index.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -66,14 +66,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/budget/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="641">
-              <caret line="35" column="17" lean-forward="true" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
+            <state relative-caret-position="751">
+              <caret line="40" column="56" lean-forward="true" selection-start-line="40" selection-start-column="56" selection-end-line="40" selection-end-column="56" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/budget/templates/budget/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -123,7 +133,6 @@
         <option value="$PROJECT_DIR$/budget/migrations/0002_init_data.py" />
         <option value="$PROJECT_DIR$/journal/admin.py" />
         <option value="$PROJECT_DIR$/nutrition/admin.py" />
-        <option value="$PROJECT_DIR$/budget/templates/budget/index.html" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/nutrition/models.py" />
         <option value="$PROJECT_DIR$/journal/models.py" />
@@ -135,6 +144,7 @@
         <option value="$PROJECT_DIR$/organizer/views.py" />
         <option value="$PROJECT_DIR$/organizer/templates/organizer/index.html" />
         <option value="$PROJECT_DIR$/budget/views.py" />
+        <option value="$PROJECT_DIR$/budget/templates/budget/index.html" />
       </list>
     </option>
   </component>
@@ -207,6 +217,19 @@
               <item name="Orgsistant" type="462c0819:PsiDirectoryNode" />
               <item name="budget" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="budget" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Orgsistant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Orgsistant" type="462c0819:PsiDirectoryNode" />
+              <item name="budget" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Orgsistant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Orgsistant" type="462c0819:PsiDirectoryNode" />
+              <item name="budget" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="budget" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -688,7 +711,14 @@
       <option name="project" value="LOCAL" />
       <updated>1541255281635</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Total spendings this month added">
+      <created>1541511768350</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1541511768350</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -746,7 +776,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Todo organizer change" />
     <MESSAGE value="Test" />
     <MESSAGE value="Testhbhbh" />
     <MESSAGE value="Finish github problems, reverse testing changes" />
@@ -771,7 +800,8 @@
     <MESSAGE value="Exception" />
     <MESSAGE value="View amount of pomodoro sessions by day" />
     <MESSAGE value="Cosmetic" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cosmetic" />
+    <MESSAGE value="Total spendings this month added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Total spendings this month added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -963,13 +993,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/budget/templates/budget/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="26" column="12" lean-forward="false" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
@@ -1142,11 +1165,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/budget/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="641">
-          <caret line="35" column="17" lean-forward="true" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
+        <state relative-caret-position="751">
+          <caret line="40" column="56" lean-forward="true" selection-start-line="40" selection-start-column="56" selection-end-line="40" selection-end-column="56" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/budget/templates/budget/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
