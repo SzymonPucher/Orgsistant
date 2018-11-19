@@ -175,7 +175,6 @@ class Loan(models.Model):
     account = models.ForeignKey(PaymentMethod, on_delete=models.PROTECT)
     date = models.DateField(null=True, blank=True)
     due = models.DateField(null=True, blank=True)
-    status = models.CharField(max_length=32, choices=(('Active', 'Active'),('Overtime', 'Overtime'),('Paid off', 'Paid off')))
     description = models.TextField(max_length=1000, blank=True)
 
     class Meta:
