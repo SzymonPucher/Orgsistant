@@ -36,6 +36,21 @@ def index(request):
     for i in tms:
         total_spend += i.price
     print(total_spend)
-    context = {'products': all_bought_today, 'spend': total_spend}
+    cats = []
+
+    all = BoughtProduct.objects.all()
+    # for p in all:
+    #     if str(p.product.category).split(' -> ')[0] not in cats:
+    #         cats.append(str(p.product.category).split(' -> ')[0])
+    # print(cats)
+    # l_big = []
+    # for t in time_frame:
+    #     l_inner = []
+    #     for c in cats:
+    #         l_inner.append(BoughtProduct.objects.filter(date__year=t[1], date__month=t[0], product__category__parent__name=c))
+    #     l_big.append(l_inner)
+    # print(l_big)
+
+    context = {'products': all, 'spend': total_spend}
 
     return render(request, 'budget/index.html', context)

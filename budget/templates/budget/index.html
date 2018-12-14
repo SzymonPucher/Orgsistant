@@ -6,6 +6,8 @@
     <thead>
     <tr>
         <th>Product</th>
+        <th>Product</th>
+        <th>Product</th>
         <th>Price</th>
         <th>Payment Method</th>
         <th>Date</th>
@@ -16,8 +18,10 @@
     <tbody>
     {% for product in products %}
         <tr>
-            <td>{{ product.product }}</td>
-            <td>{{ product.price }} {{ product.currency }}</td>
+            <td>{{ product.product.name }}</td>
+            <td>{{ product.product.category.name }}</td>
+            <td>{{ product.product.category.parent.name }}</td>
+            <td>{{ product.price }}</td>
             <td>{{ product.payment_method }}</td>
             <td>{{ product.date }}</td>
             <td>{{ product.vendor }}</td>
@@ -27,6 +31,8 @@
     </tbody>
     <tfoot>
     <tr>
+        <th>Product</th>
+        <th>Product</th>
         <th>Product</th>
         <th>Price</th>
         <th>Payment Method</th>
