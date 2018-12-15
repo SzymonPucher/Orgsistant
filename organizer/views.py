@@ -33,5 +33,8 @@ def index(request, id=-1):
         if x:
             pomos.append([str(p.date), 1])
     print(pomos)
-    context = {'todo': todos, 'ed': every_day_done, 'todo_done': todos_done, 'pomodoros': pomos}
+
+    cats = Category.objects.all()
+    p = PomodoroSession.objects.all()
+    context = {'p': p, 'cats': cats,'todo': todos, 'ed': every_day_done, 'todo_done': todos_done, 'pomodoros': pomos}
     return render(request, 'organizer/index.html', context)

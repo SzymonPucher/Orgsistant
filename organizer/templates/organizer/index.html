@@ -79,10 +79,44 @@
     </tr>
     </thead>
     <tbody>
-    {% for p in pomodoros %}
+    {% for c in pomodoros %}
         <tr>
-            <td>{{ p.0 }}</td>
-            <td>{{ p.1 }}</td>
+            <td>{{ c.0 }}</td>
+            <td>{{ c.1 }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<table data-table-theme="dark zebra">
+    <thead>
+    <tr>
+        <th>Cat</th>
+        <th>date</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for x in p %}
+        <tr>
+            <td>{{ x.category }}</td>
+            <td>{{ x.date.year }}-{{ x.date.month }}-{{ x.date.day }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<table data-table-theme="dark zebra">
+    <thead>
+    <tr>
+        <th>Cat</th>
+        <th>date</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for x in cats %}
+        <tr>
+            <td>{{ x.category.name }}</td>
+            <td>{{ x.date.year }}-{{ x.date.month }}-{{ x.date.day }}</td>
         </tr>
     {% endfor %}
     </tbody>

@@ -10,16 +10,13 @@
       <change beforePath="$PROJECT_DIR$/budget/migrations/0005_auto_20181017_1257.py" afterPath="" />
       <change beforePath="$PROJECT_DIR$/budget/migrations/0006_auto_20181119_1030.py" afterPath="" />
       <change beforePath="$PROJECT_DIR$/budget/models.py" afterPath="$PROJECT_DIR$/budget/models.py" />
-      <change beforePath="$PROJECT_DIR$/budget/templates/budget/index.html" afterPath="$PROJECT_DIR$/budget/templates/budget/index.html" />
       <change beforePath="$PROJECT_DIR$/budget/useful.py" afterPath="$PROJECT_DIR$/budget/useful.py" />
       <change beforePath="$PROJECT_DIR$/journal/migrations/0001_initial.py" afterPath="" />
       <change beforePath="$PROJECT_DIR$/journal/migrations/0002_auto_20181017_1257.py" afterPath="" />
       <change beforePath="$PROJECT_DIR$/nutrition/migrations/0001_initial.py" afterPath="" />
       <change beforePath="$PROJECT_DIR$/nutrition/migrations/0002_auto_20181017_1257.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/organizer/migrations/0001_initial.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/organizer/migrations/0002_category_parent.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/organizer/migrations/0003_auto_20181017_1257.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/organizer/migrations/0004_auto_20181119_1030.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/organizer/templates/organizer/index.html" afterPath="$PROJECT_DIR$/organizer/templates/organizer/index.html" />
+      <change beforePath="$PROJECT_DIR$/organizer/views.py" afterPath="$PROJECT_DIR$/organizer/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,10 +32,32 @@
           <file leaf-file-name="useful.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/budget/useful.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="443">
-                  <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+                <state relative-caret-position="637">
+                  <caret line="75" column="8" lean-forward="true" selection-start-line="75" selection-start-column="8" selection-end-line="75" selection-end-column="8" />
                   <folding>
                     <element signature="e#0#15#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/organizer/templates/organizer/index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="399">
+                  <caret line="120" column="16" lean-forward="true" selection-start-line="120" selection-start-column="16" selection-end-line="120" selection-end-column="16" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/organizer/views.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="333">
+                  <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#0#54#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -76,11 +95,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/budget/templates/budget/index.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="470">
-                  <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+                  <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -151,13 +170,13 @@
         <option value="$PROJECT_DIR$/organizer/urls.py" />
         <option value="$PROJECT_DIR$/budget/static/budget/table.css" />
         <option value="$PROJECT_DIR$/organizer/models.py" />
-        <option value="$PROJECT_DIR$/organizer/views.py" />
-        <option value="$PROJECT_DIR$/organizer/templates/organizer/index.html" />
         <option value="$PROJECT_DIR$/orgsistant/settings.py" />
         <option value="$PROJECT_DIR$/budget/views.py" />
         <option value="$PROJECT_DIR$/budget/models.py" />
-        <option value="$PROJECT_DIR$/budget/useful.py" />
         <option value="$PROJECT_DIR$/budget/templates/budget/index.html" />
+        <option value="$PROJECT_DIR$/budget/useful.py" />
+        <option value="$PROJECT_DIR$/organizer/views.py" />
+        <option value="$PROJECT_DIR$/organizer/templates/organizer/index.html" />
       </list>
     </option>
   </component>
@@ -394,13 +413,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1539174115751</updated>
-    </task>
-    <task id="LOCAL-00002" summary="update models">
-      <created>1539179075817</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1539179075817</updated>
     </task>
     <task id="LOCAL-00003" summary="life">
       <created>1539181037145</created>
@@ -738,7 +750,14 @@
       <option name="project" value="LOCAL" />
       <updated>1544823759624</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="For data scraping">
+      <created>1544873816270</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1544873816270</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1034,21 +1053,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/organizer/templates/organizer/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1738">
-          <caret line="79" column="12" lean-forward="false" selection-start-line="79" selection-start-column="12" selection-end-line="79" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/organizer/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="32" column="13" lean-forward="false" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/budget/migrations/0006_auto_20181119_1030.py" />
     <entry file="file://$PROJECT_DIR$/orgsistant/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -1125,16 +1129,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/budget/useful.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nutrition/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
@@ -1156,7 +1150,35 @@
     <entry file="file://$PROJECT_DIR$/budget/templates/budget/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="470">
-          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/budget/useful.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="637">
+          <caret line="75" column="8" lean-forward="true" selection-start-line="75" selection-start-column="8" selection-end-line="75" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/organizer/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/organizer/templates/organizer/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="120" column="16" lean-forward="true" selection-start-line="120" selection-start-column="16" selection-end-line="120" selection-end-column="16" />
           <folding />
         </state>
       </provider>
