@@ -22,7 +22,7 @@
             <td>{{ product.product.category.parent.name }}</td>
             <td>{{ product.price }}</td>
             <td>{{ product.payment_method }}</td>
-            <td>{{ product.date }}</td>
+            <td>{{ product.date.year }}-{{ product.date.month }}-{{ product.date.day }}</td>
             <td>{{ product.vendor }}</td>
             <td>{{ product.location }}</td>
         </tr>
@@ -153,7 +153,7 @@
             <td>{{ x.source }}</td>
             <td>{{ x.destination }}</td>
             <td>{{ x.amount }}</td>
-            <td>{{ x.date }}</td>
+            <td>{{ x.date.year }}-{{ x.date.month }}-{{ x.date.day }}</td>
             <td>{{ x.description }}</td>
         </tr>
     {% endfor %}
