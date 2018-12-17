@@ -4,9 +4,42 @@
 <table data-table-theme="dark zebra">
     <thead>
     <tr>
+        <th>Label</th>
+        {% for month in spend %}
+            <th>{{ month.1 }} - {{ month.2 }}</th>
+        {% endfor %}
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th>Spendings</th>
+        {% for month in spend %}
+            <td>{{ month.0 }} zł</td>
+        {% endfor %}
+    </tr>
+    <tr>
+        <th>Income</th>
+        {% for month in spend %}
+            <td>{{ month.3 }} zł</td>
+        {% endfor %}
+    </tr>
+    <tr>
+        <th>Saldo</th>
+        {% for month in spend %}
+            <td>{{ month.4 }} zł</td>
+        {% endfor %}
+    </tr>
+    </tbody>
+</table>
+
+
+<table data-table-theme="dark zebra">
+    <caption>Saldo: {{ ts }} zł</caption>
+    <thead>
+    <tr>
         <th>Product</th>
-        <th>Product</th>
-        <th>Product</th>
+        <th>Sub-category</th>
+        <th>Category</th>
         <th>Price</th>
         <th>Payment Method</th>
         <th>Date</th>
@@ -25,136 +58,6 @@
             <td>{{ product.date.year }}-{{ product.date.month }}-{{ product.date.day }}</td>
             <td>{{ product.vendor }}</td>
             <td>{{ product.location }}</td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
-
-
-<table data-table-theme="dark zebra">
-    <thead>
-    <tr>
-        <th>Vendor</th>
-        <th>Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for ven in vendors %}
-        <tr>
-            <td>{{ ven.name }}</td>
-            <td>{{ ven.description }}</td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
-
-<table data-table-theme="dark zebra">
-    <thead>
-    <tr>
-        <th>Payment meth</th>
-        <th>Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for x in pm %}
-        <tr>
-            <td>{{ x.name }}</td>
-            <td>{{ x.description }}</td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
-
-<table data-table-theme="dark zebra">
-    <thead>
-    <tr>
-        <th>Loc</th>
-        <th>Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for x in locs %}
-        <tr>
-            <td>{{ x.name }}</td>
-            <td>{{ x.description }}</td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
-
-<table data-table-theme="dark zebra">
-    <thead>
-    <tr>
-        <th>Cats</th>
-        <th>par</th>
-        <th>Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for x in cat %}
-        <tr>
-            <td>{{ x.name }}</td>
-            <td>{{ x.parent.name }}</td>
-            <td>{{ x.description }}</td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
-
-<table data-table-theme="dark zebra">
-    <thead>
-    <tr>
-        <th>prod</th>
-        <th>cat</th>
-        <th>Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for x in prod %}
-        <tr>
-            <td>{{ x.name }}</td>
-            <td>{{ x.category }}</td>
-            <td>{{ x.description }}</td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
-
-<table data-table-theme="dark zebra">
-    <thead>
-    <tr>
-        <th>inc src</th>
-        <th>Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for x in incsrc %}
-        <tr>
-            <td>{{ x.name }}</td>
-            <td>{{ x.description }}</td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
-
-<table data-table-theme="dark zebra">
-    <thead>
-    <tr>
-        <th>src</th>
-        <th>dest</th>
-        <th>amount</th>
-        <th>date</th>
-        <th>Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for x in inc %}
-        <tr>
-            <td>{{ x.source }}</td>
-            <td>{{ x.destination }}</td>
-            <td>{{ x.amount }}</td>
-            <td>{{ x.date.year }}-{{ x.date.month }}-{{ x.date.day }}</td>
-            <td>{{ x.description }}</td>
         </tr>
     {% endfor %}
     </tbody>

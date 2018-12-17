@@ -2,9 +2,10 @@ from django.shortcuts import render
 import datetime
 from django.http import HttpResponse
 
-from .models import Category, Currency, PaymentMethod, Vendor, Location, Product, BoughtProduct, InnerTransfer,\
-                    IncomeSource, Income, Loan
+from .models import Category, Currency, PaymentMethod, Vendor, Location, Product, BoughtProduct, InnerTransfer, \
+    IncomeSource, Income, Loan
 from .useful import get_timeframe
+
 """
 Components:
 Menu - Side menu, responsive to top one if opened on the phone.
@@ -26,32 +27,34 @@ Summary - summary for chosen timeframe, default: last year. Divided into incomes
 
 # Create your views here.
 def index(request):
-    f, l = BoughtProduct.objects.last(), BoughtProduct.objects.first()
-    time_frame = get_timeframe(f, l)
-    print(time_frame)
-    all_bought_today = BoughtProduct.objects.filter(date=datetime.date.today())
+    # f, l = BoughtProduct.objects.last(), BoughtProduct.objects.first()
+    # time_frame = get_timeframe(f, l)
+    # print(time_frame)
+
     year, month = datetime.date.today().year, datetime.date.today().month
-    tms = BoughtProduct.objects.filter(date__year=year, date__month=month)
-    total_spend = 0
-    for i in tms:
-        total_spend += i.price
-    print(total_spend)
-    cats = []
 
-    all = BoughtProduct.objects.all()
-    for p in all:
-        if str(p.product.category).split(' -> ')[0] not in cats:
-            cats.append(str(p.product.category).split(' -> ')[0])
-    print(cats)
-    l_big = []
-    for t in time_frame:
-        l_inner = []
-        for c in cats:
-            l_inner.append(BoughtProduct.objects.filter(date__year=t[1], date__month=t[0], product__category__parent__name=c))
-        l_big.append(l_inner)
-    print(l_big)
+    ms = []
+    ts = 0
+    for i in range(12):
+        total_spend = 0
+        total_inc = 0
+        if month - i < 1:
+            y = year - 1
+            m = month - i + 12
+            x = BoughtProduct.objects.filter(date__year=y, date__month=m)
+            inc = Income.objects.filter(date__year=y, date__month=m)
+        else:
+            y = year
+            m = month - i
+            x = BoughtProduct.objects.filter(date__year=y, date__month=m)
+            inc = Income.objects.filter(date__year=y, date__month=m)
+        for p in x:
+            total_spend += p.price
+        for p in inc:
+            total_inc += p.amount
+        ts += total_inc - total_spend
+        ms.append([total_spend, m, y, total_inc, total_inc-total_spend])
 
-
-    context = {'products': all, 'spend': total_spend}
+    context = {'products': BoughtProduct.objects.filter(date=datetime.date.today()), 'spend': ms[::-1], 'ts': ts}
 
     return render(request, 'budget/index.html', context)
