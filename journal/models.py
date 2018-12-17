@@ -20,6 +20,7 @@ class Day(models.Model):
     important_thing_that_happened = models.TextField(max_length=256, blank=True)
     one_sentence_description = models.TextField(max_length=256)
     today_i_learned = models.TextField("Today I learned", max_length=256, blank=True)
+    what_I_can_improve = models.TextField(max_length=256, blank=True)
     food_eaten = models.TextField(max_length=512, blank=True)
     tags = models.TextField(max_length=256, blank=True)
     content = models.TextField(max_length=10000)
