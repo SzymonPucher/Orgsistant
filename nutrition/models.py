@@ -4,8 +4,7 @@ from budget.models import Currency
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=30, unique=True)
-    description = models.TextField(max_length=1000, blank=True)
+    name = models.CharField(max_length=64, unique=True)
 
     class Meta:
         verbose_name_plural = "Categories"
@@ -20,8 +19,7 @@ class Recipe(models.Model):
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
     image = models.ImageField(blank=True, null=True)
     cooking_time = models.DurationField()
-    estimated_price = models.DecimalField(max_digits=5, decimal_places=2)
-    currency = models.ForeignKey(Currency, on_delete=models.PROTECT, default=1)
+    estimated_price_pln = models.DecimalField(max_digits=5, decimal_places=2)
     ingredients = models.TextField(max_length=2000)
     cooking_instructions = models.TextField(max_length=10000)
 

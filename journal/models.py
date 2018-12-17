@@ -4,8 +4,8 @@ from django import forms
 
 
 class Mood(models.Model):
-    name = models.CharField(max_length=30, unique=True)
-    description = models.TextField(max_length=1000, blank=True)
+    name = models.CharField(max_length=32, unique=True)
+    description = models.TextField(max_length=1024, blank=True)
 
     def __str__(self):
         return str(self.name)
@@ -17,11 +17,11 @@ class Mood(models.Model):
 class Day(models.Model):
     date = models.DateField(unique=True)
     mood = models.ForeignKey(Mood, on_delete=models.PROTECT)
-    important_thing_that_happened = models.CharField(max_length=200, blank=True)
-    one_sentence_description = models.CharField(max_length=200)
-    today_i_learned = models.CharField("Today I learned", max_length=200, blank=True)
-    food_eaten = models.CharField(max_length=500, blank=True)
-    tags = models.CharField(max_length=200, blank=True)
+    important_thing_that_happened = models.TextField(max_length=256, blank=True)
+    one_sentence_description = models.TextField(max_length=256)
+    today_i_learned = models.TextField("Today I learned", max_length=256, blank=True)
+    food_eaten = models.TextField(max_length=512, blank=True)
+    tags = models.TextField(max_length=256, blank=True)
     content = models.TextField(max_length=10000)
 
     class Meta:
@@ -33,9 +33,9 @@ class Day(models.Model):
 
 class Month(models.Model):
     date = models.DateField(unique=True)
-    one_sentence_description = models.CharField(max_length=200)
-    accomplishments = models.TextField(max_length=2000)
-    tags = models.CharField(max_length=200, blank=True)
+    one_sentence_description = models.CharField(max_length=256)
+    accomplishments = models.TextField(max_length=2048)
+    tags = models.CharField(max_length=256, blank=True)
     content = models.TextField(max_length=10000)
 
     class Meta:
@@ -47,9 +47,9 @@ class Month(models.Model):
 
 class Year(models.Model):
     year = models.PositiveIntegerField(unique=True)
-    one_sentence_description = models.CharField(max_length=200)
-    accomplishments = models.TextField(max_length=2000)
-    tags = models.CharField(max_length=200, blank=True)
+    one_sentence_description = models.CharField(max_length=256)
+    accomplishments = models.TextField(max_length=2048)
+    tags = models.CharField(max_length=256, blank=True)
     portrait = models.ImageField(blank=True, null=True)
     content = models.TextField(max_length=10000)
 
@@ -61,8 +61,7 @@ class Year(models.Model):
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=30, unique=True)
-    description = models.TextField(max_length=1000, blank=True)
+    name = models.CharField(max_length=32, unique=True)
 
     class Meta:
         verbose_name_plural = "Categories"
@@ -73,9 +72,9 @@ class Category(models.Model):
 
 
 class Chapter(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=64)
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
-    attributes = models.TextField(max_length=1000, blank=True)
+    attributes = models.TextField(max_length=1024, blank=True)
     content = models.TextField(max_length=100000)
 
     class Meta:
@@ -86,8 +85,8 @@ class Chapter(models.Model):
 
 
 class List(models.Model):
-    name = models.CharField(max_length=50, unique=True)
-    description = models.TextField(max_length=1000, blank=True)
+    name = models.CharField(max_length=64, unique=True)
+    description = models.TextField(max_length=1024, blank=True)
 
     class Meta:
         ordering = ('name',)
@@ -97,9 +96,8 @@ class List(models.Model):
 
 
 class ElementInList(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=64)
     list = models.ForeignKey(List, on_delete=models.PROTECT)
-    description = models.TextField(max_length=1000, blank=True)
 
     class Meta:
         verbose_name_plural = "List elements"

@@ -39,26 +39,19 @@ def index(request):
     cats = []
 
     all = BoughtProduct.objects.all()
-    # for p in all:
-    #     if str(p.product.category).split(' -> ')[0] not in cats:
-    #         cats.append(str(p.product.category).split(' -> ')[0])
-    # print(cats)
-    # l_big = []
-    # for t in time_frame:
-    #     l_inner = []
-    #     for c in cats:
-    #         l_inner.append(BoughtProduct.objects.filter(date__year=t[1], date__month=t[0], product__category__parent__name=c))
-    #     l_big.append(l_inner)
-    # print(l_big)
-    cat = Category.objects.all()
-    ven = Vendor.objects.all()
-    locs = Location.objects.all()
-    prod = Product.objects.all()
-    pm = PaymentMethod.objects.all()
-    incsrc = IncomeSource.objects.all()
-    inc = Income.objects.all()
+    for p in all:
+        if str(p.product.category).split(' -> ')[0] not in cats:
+            cats.append(str(p.product.category).split(' -> ')[0])
+    print(cats)
+    l_big = []
+    for t in time_frame:
+        l_inner = []
+        for c in cats:
+            l_inner.append(BoughtProduct.objects.filter(date__year=t[1], date__month=t[0], product__category__parent__name=c))
+        l_big.append(l_inner)
+    print(l_big)
 
 
-    context = {'products': all, 'vendors': ven, 'locs': locs, 'prod': prod, 'pm': pm, 'cat': cat, 'incsrc': incsrc, 'inc': inc, 'spend': total_spend}
+    context = {'products': all, 'spend': total_spend}
 
     return render(request, 'budget/index.html', context)

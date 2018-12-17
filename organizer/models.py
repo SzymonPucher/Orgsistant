@@ -5,21 +5,14 @@ import datetime
 # TODO: Streak for 'Codzienne'
 
 class Category(models.Model):
-    parent = models.ForeignKey('self', blank=True, null=True, related_name='children', on_delete=models.CASCADE)
     name = models.CharField(max_length=32, unique=True)
-    description = models.TextField(max_length=200, blank=True)
 
     class Meta:
         verbose_name_plural = "Categories"
         ordering = ('name',)
 
     def __str__(self):
-        full_path = [self.name]
-        k = self.parent
-        while k is not None:
-            full_path.append(k.name)
-            k = k.parent
-        return ' <- '.join(full_path[::1])
+        return str(self.name)
 
 
 class ToDoItem(models.Model):

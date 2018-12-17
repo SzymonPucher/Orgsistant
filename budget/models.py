@@ -3,21 +3,22 @@ from django.db import models
 
 # TODO: Typical products add with hide option
 
+
 class Currency(models.Model):
     name = models.CharField(max_length=3, unique=True)
-
-    def __str__(self):
-        return self.name
 
     class Meta:
         verbose_name_plural = "Currencies"
         ordering = ('name',)
 
+    def __str__(self):
+        return self.name
+
 
 class PaymentMethod(models.Model):
     name = models.CharField(max_length=32, unique=True)
-    currency = models.ForeignKey(Currency, on_delete=models.PROTECT, default=1)
-    description = models.TextField(max_length=100, blank=True)
+    currency = models.ForeignKey(Currency, on_delete=models.PROTECT)
+
 
     class Meta:
         ordering = ('name',)
@@ -28,7 +29,6 @@ class PaymentMethod(models.Model):
 
 class Vendor(models.Model):
     name = models.CharField(max_length=32, unique=True)
-    description = models.TextField(max_length=100, blank=True)
 
     class Meta:
         ordering = ('name',)
@@ -39,7 +39,6 @@ class Vendor(models.Model):
 
 class Location(models.Model):
     name = models.CharField(max_length=32, unique=True)
-    description = models.TextField(max_length=100, blank=True)
 
     class Meta:
         ordering = ('name',)
@@ -52,7 +51,6 @@ class Category(models.Model):
     parent = models.ForeignKey('self',blank=True, null=True, related_name='children', on_delete=models.CASCADE)
     name = models.CharField(max_length=32)
     budget = models.DecimalField(max_digits=9, decimal_places=2, null=True, blank=True)
-    description = models.TextField(max_length=200, blank=True)
 
     def __str__(self):
         full_path = [self.name]
@@ -79,10 +77,10 @@ class Category(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=64)
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
-    description = models.TextField(max_length=300, blank=True)
+    description = models.TextField(max_length=512, blank=True)
 
     def __str__(self):
-        return  self.name + ' - ' + str(self.category)
+        return self.name + ' - ' + str(self.category)
 
     def is_food(self):
         if 'Food' in str(self.category):
@@ -91,16 +89,17 @@ class Product(models.Model):
 
     class Meta:
         ordering = ('name',)
+        unique_together = ('name', 'category',)
 
 
 class BoughtProduct(models.Model):
     product = models.ForeignKey(Product, on_delete=models.PROTECT)
     price = models.DecimalField(max_digits=9, decimal_places=2)
-    currency = models.ForeignKey(Currency, on_delete=models.PROTECT, default=1)
-    payment_method = models.ForeignKey(PaymentMethod, on_delete=models.PROTECT, default=1)
+    currency = models.ForeignKey(Currency, on_delete=models.PROTECT)
+    payment_method = models.ForeignKey(PaymentMethod, on_delete=models.PROTECT)
     date = models.DateField()
-    vendor = models.ForeignKey(Vendor, on_delete=models.PROTECT, default=1)
-    location = models.ForeignKey(Location, on_delete=models.PROTECT, default=1)
+    vendor = models.ForeignKey(Vendor, on_delete=models.PROTECT)
+    location = models.ForeignKey(Location, on_delete=models.PROTECT)
 
     class Meta:
         ordering = ('-date', 'price')
@@ -109,30 +108,14 @@ class BoughtProduct(models.Model):
         return str(self.date) + ' | ' + str(self.price) + ' ' + str(self.currency) + ' ' + str(self.product)
 
 
-class FreeProduct(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.PROTECT)
-    date = models.DateField()
-    estimated_value = models.DecimalField(max_digits=9, decimal_places=2)
-    source = models.CharField(max_length=32, blank=True)
-    location = models.ForeignKey(Location, on_delete=models.PROTECT, default=1)
-    description = models.TextField(max_length=50, blank=True)
-
-    class Meta:
-        ordering = ('-date', 'product__name')
-
-    def __str__(self):
-        return str(self.product)
-
-
 class InnerTransfer(models.Model):
     source = models.ForeignKey(PaymentMethod, on_delete=models.PROTECT, related_name='Transfer_from')
     destination = models.ForeignKey(PaymentMethod, on_delete=models.PROTECT, related_name='Transfer_to')
     source_amount = models.DecimalField(max_digits=9, decimal_places=2)
-    source_currency = models.ForeignKey(Currency, on_delete=models.PROTECT, default=1, related_name='Source_currency')
+    source_currency = models.ForeignKey(Currency, on_delete=models.PROTECT, related_name='Source_currency')
     destination_amount = models.DecimalField(max_digits=9, decimal_places=2)
-    destination_currency = models.ForeignKey(Currency, on_delete=models.PROTECT, default=1, related_name='Destination_currency')
+    destination_currency = models.ForeignKey(Currency, on_delete=models.PROTECT, related_name='Destination_currency')
     date = models.DateField()
-    description = models.TextField(max_length=50, blank=True)
 
     class Meta:
         ordering = ('-date', 'source_amount')
@@ -143,7 +126,6 @@ class InnerTransfer(models.Model):
 
 class IncomeSource(models.Model):
     name = models.CharField(max_length=32, unique=True)
-    description = models.TextField(max_length=100, blank=True)
 
     class Meta:
         ordering = ('name',)
@@ -156,9 +138,8 @@ class Income(models.Model):
     source = models.ForeignKey(IncomeSource, on_delete=models.PROTECT)
     destination = models.ForeignKey(PaymentMethod, on_delete=models.PROTECT)
     amount = models.DecimalField(max_digits=9, decimal_places=2)
-    currency = models.ForeignKey(Currency, on_delete=models.PROTECT, default=1)
+    currency = models.ForeignKey(Currency, on_delete=models.PROTECT)
     date = models.DateField()
-    description = models.CharField(max_length=32, blank=True)
 
     class Meta:
         ordering = ('-date', 'amount')
@@ -168,14 +149,14 @@ class Income(models.Model):
 
 
 class Loan(models.Model):
-    lender = models.CharField(max_length=32)
-    borrower = models.CharField(max_length=32)
+    lender = models.CharField(max_length=64)
+    borrower = models.CharField(max_length=64)
     amount = models.DecimalField(max_digits=9, decimal_places=2)
-    currency = models.ForeignKey(Currency, on_delete=models.PROTECT, default=1)
+    currency = models.ForeignKey(Currency, on_delete=models.PROTECT)
     account = models.ForeignKey(PaymentMethod, on_delete=models.PROTECT)
-    date = models.DateField(null=True, blank=True)
+    date = models.DateField()
     due = models.DateField(null=True, blank=True)
-    description = models.TextField(max_length=1000, blank=True)
+    description = models.TextField(max_length=512, blank=True)
 
     class Meta:
         ordering = ('-date', 'amount')
