@@ -1,1 +1,1 @@
-# Application helping me organise my life.
+# Overall assistant application.
